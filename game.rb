@@ -1,32 +1,40 @@
 require 'colorize'
+require "./adivinador"
+require "./board"
 
 class Game
-    attr_reader :name, :colors , :num_intentos
 
     def initialize
-        @colors = colors 
-        @num_intentos = num_intentos
+        @num_intentos = 12
+        @colores = ["red", "blue", "yellow", "green"]
+        @secret_code = []
+        secret_colors
+        @adivinador = Adivinador.new(@secret_code, @colores)
     end
 
-# p "ingrese un nombre:"
-# name = gets.chomp
-# puts "Hola #{name}, bienvenido a masterMind"
+    # Marca el inicio de la partida, pidiendo la información del jugador
+    def jugador
+    puts "Ingrese un nombre:"
+    name = gets.chomp
+    puts "Hola #{name}, bienvenido a MasterMind"
+    puts ""
+    end
 
-def secret_colors
-    colors = ["red", "blue" , "white" ,"black", "yellow", "green", "brown"]
+    # Este método se encargará de generar los cuatro colores al azar de la lista de colores
+    def secret_colors
     codigo = []
-
-    4.times do 
-        codigo << colors.sample
+    4.times do
+        codigo << @colores.sample
+    end
+    @secret_code = codigo
+    p codigo
     end
 
-# p "colores #{colors}"
-
-puts "el codigo #{codigo}" 
+    def turno
+        @adivinador.turno
     end
-    
-    
 end
 
-Game1 = Game.new 
-
+game = Game.new
+game.jugador
+game.turno
