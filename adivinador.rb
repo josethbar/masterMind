@@ -9,6 +9,8 @@ class Adivinador
         @intentos_maximos = 0
     end
 
+#muestra un "x" roja si el color no esta en el secret code o una "O" verde si esta, aunque no hice la validación de si estaba en la lista pero en otra posició mostrara otro color,  aveces funciona y tira verde cuando esta (tengo que arreglarlo)
+
     def comprobar_juego(user_list)
         secret_code = @secret_code
         lista_asertados = []
@@ -25,6 +27,7 @@ class Adivinador
     turno
     end
 
+    #este metodo es el es jugador donde muestra en este caso que tiene 12 intentos de ingresar combinaciones
     def turno
         lista_colores = ["red", "blue", "yellow", "green"]
         user_list = []
@@ -56,12 +59,11 @@ class Adivinador
 
             if @intentos_maximos == 3
             puts "Has alcanzado el límite de intentos (12)."
+
+
+        # Salimos del bucle si se alcanza el límite de intentos( o almenos debería pero hay un error que no sale del ciclo y no hallé la manera que saliera , ni con break)    
             abort("pa tu casa")
-        # Salimos del bucle si se alcanza el límite de intentos
             end
-
         end
-
-            
     end
 end

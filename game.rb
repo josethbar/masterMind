@@ -10,10 +10,12 @@ class Game
         @secret_code = []
         secret_colors
         @adivinador = Adivinador.new(@secret_code, @colores)
+        # @board = Board.new(@secret_code, @colores)
     end
 
     # Marca el inicio de la partida, pidiendo la información del jugador
     def jugador
+        puts "                                 BIENVENIDO A MASTERMIND            "
     puts "Ingrese un nombre:"
     name = gets.chomp
     puts "Hola #{name}, bienvenido a MasterMind"

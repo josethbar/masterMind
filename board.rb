@@ -1,8 +1,14 @@
+
+
+#----------------no esta implementado--------------------------
 class Board
     attr_accessor :board
-
+# , secret_code, colores
     def initialize(max_turns)
+        # bindin.pry
         @board = Array.new(max_turns){Array.new(5) { [] } }
+        # @colores = colores
+        # @secret_code = secret_code
     end
     
     def display_board
@@ -25,4 +31,4 @@ end
 
 
 board = Board.new(12)
-board.display_board
+board.display_board        
